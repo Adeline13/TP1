@@ -1,0 +1,115 @@
+@font-face
+{
+    font-family: Tangerine;
+    src:  url(../FONT/Tangerine/Tangerine-Regular.ttf) format('truetype'),
+        url(../FONT/Tangerine/Tangerine-Bold.ttf) format('truetype');
+}
+@font-face
+{
+    font-family: Cormorant_Garamond;
+    src: url(../FONT/Cormorant_Garamond/CormorantGaramond-Regular.ttf);
+}
+/* generale */
+*
+{
+    margin: 0;
+    padding: 0;
+}
+section
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 600px;
+}
+form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 700px;
+    background-color: rgb(0, 0, 0);
+    height: 530px;
+    padding-left: 50px;
+    margin-top: 20px;
+}
+input
+{
+    font-family: Cormorant-Garamond;
+    width: 280px;
+    border: none;
+    height: 30px;
+    margin: 10px 0;
+}
+textarea
+{
+    margin-top: 8px;
+    padding-top: 5px;
+}
+input, textarea
+{
+    padding-left: 5px;
+}
+input[type=submit]
+{
+    width: 55px;
+    height: 55px;
+    border: none;
+    font-size: 11px;
+    background-color: orangered;
+    border-radius: 50%;
+    padding-right: 3px;
+    margin: 20px auto 0px 530px;
+    box-shadow: 0 0 0 orangered;
+    animation: pulse 1.3s infinite;
+}
+@keyframes pulse {
+    to {
+        box-shadow: 0 0 0 10px rgba(255, 68, 0, 0.01);
+    }
+}
+input[type=submit]:hover
+{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+p
+{
+    margin-left: 50px;
+    position: relative;
+}
+p a
+{
+    text-decoration: none;
+    font-size: large;
+    display: inline-block;
+    width: 300px;
+    color: orangered;
+    text-align: center;
+    font-size: large;
+    transition: 0.6s all ease;/*definition d'une animation de type ease*/
+}
+p>a::before/*je cree du contenu dans l'element et je lui attribut une animation*/
+{
+    background: orangered;
+    content: '';
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    transition: all 0.6s ease;
+}
+p>a:hover/*action declanchee lorsqu'on survole l'element*/
+{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+p>a:hover::before
+{
+    width: 100%;
+}

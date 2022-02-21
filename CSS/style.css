@@ -1,0 +1,277 @@
+@font-face/*definition d'une police personalisee*/
+{
+    font-family: Tangerine;
+    src:  url(../FONT/Tangerine/Tangerine-Regular.ttf) format('truetype'),
+        url(../FONT/Tangerine/Tangerine-Bold.ttf) format('truetype');
+}
+@font-face
+{
+    font-family: Cormorant_Garamond;
+    src: url(../FONT/Cormorant_Garamond/CormorantGaramond-Regular.ttf);
+}
+/* generale */
+*
+{
+    margin: 0;
+    padding: 0;
+}
+section
+{
+    font-family: Cormorant-Garamond;
+    color: #444;
+}
+ul
+{
+    list-style: none;
+}
+a
+{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+p
+{
+    font-size: 15px;
+}
+
+/*Specifique*/
+
+header
+{
+    display: flex; /*utilisation de la flex-box pour positionner les element de l'entete cote a cote*/
+    position: fixed;/*pour fixer l'entete et le rendre visible durant toute la navigation de la page*/
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 75px;
+    border-bottom: rgba(0, 0, 0, 0.329) 1px solid;
+    z-index: 1;/*priorite de visibilite*/
+}
+header nav
+{
+    display: flex;
+    justify-content: flex-end;/*positionnement des elements a l'extemite droite du conteneur*/
+    margin: auto;
+    padding-top: 35px;
+    width: 80%;
+}
+header nav p
+{
+    position: relative;
+    margin: 2px;
+}
+#logoFab
+{
+    width: 155px;
+    height: 55px;
+    position: relative;
+    top: 10px;
+    left: 50px;
+}
+.btn_anim
+{
+    display: block;
+    width: 100px;
+    height: 25px;
+    padding-top: 5px;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    overflow: hidden;/*debordement du texte*/
+    transition: 0.6s all ease;/*definition d'une animation de type ease*/
+
+}
+.btn_anim::before/*je cree du contenu dans l'element et je lui attribut une animation*/
+{
+    background: orangered;
+    content: '';
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    transition: all 0.6s ease;
+}
+.btn_anim:hover/*action declanchee lorsqu'on survole l'element*/
+{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+.btn_anim:hover::before
+{
+    width: 100%;
+}
+div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+#mainImage
+{
+    height: 500px;
+    background: url(../IMAGES/dm_banner_right_img.png) no-repeat right fixed rgb(0, 0, 0);
+    background-size: 392px 295px;
+    color: orangered;
+}
+#mainImage h1
+{
+    font-size: 50px;
+    text-align: center;
+    text-shadow: 0 0 5px orangered;/*ombre autour du texte*/
+    animation: apparition 1.8s ease-out;
+    margin-top: 50px;
+}
+@keyframes apparition {/* je cree une animation et je definie ses caracteristiques*/
+    from{
+        opacity: 0;
+        transform: translateY(-150px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#about
+{
+    padding-top: 90px;
+}
+#about p:last-child
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 50px;
+    text-align: justify;
+    font-size: large;
+    clear: both;
+}
+#about p span
+{
+    width: 35%;
+    margin-left: 15px;
+}
+#text
+{
+    width: 100%;
+    height: 50px;
+    font-size: large;
+    text-align: justify;
+    left: 800px;
+}
+#text span
+{
+    float: right;
+    width: 35%;
+    margin-right: 35px;
+    margin-top: 50px;
+}
+h3
+{
+    text-transform: uppercase;/*le titre en gras*/
+    margin-bottom: 10px;
+    color: black;
+    font-size: 30px;
+}
+hr
+{
+    width: 30%;
+    border: 1px solid rgba(255, 68, 0, 1);
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+#presentation
+{
+    margin-top: 80px;
+}
+#presentation hr
+{
+    width: 40%;
+    margin-bottom: 70px;
+}
+.items
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.items li
+{
+    width: 270px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px rgb(0, 0, 0);
+    margin: 20px auto;
+    padding-bottom: 20px;
+    transition: ease 0.7s all;
+}
+.items li:hover
+{
+    transform: scale(1.1);/*lorsque je survole l'element, sa taille est multipliee par 1.1*/
+    z-index: -1;
+}
+.items li img
+{
+    width: 70px;
+    height: 80px;
+}
+.items li p
+{
+    width: 80%;
+}
+.items li span
+{
+    margin: 5px auto;
+    color: orangered;
+    font-family: Tangerine;
+    font-size: 28px;
+    font-weight: bold;
+}
+.open
+{
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    background-color: orangered;
+    padding-bottom: 4px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-transform: lowercase;
+    border-radius: 2px;
+    box-shadow: 0 0 0 orangered;/*ombre sur le conteneur*/
+    animation: pulse 1.3s infinite;
+}
+@keyframes pulse {
+    to {
+        box-shadow: 0 0 0 10px rgba(255, 68, 0, 0.01);
+    }
+}
+.open:hover
+{
+    font-weight: bold;
+}
+footer
+{
+    background-color: rgb(0, 0, 0);
+    height: 100px;
+    padding-top: 20px;
+    padding-left: 5px;
+}
+footer p
+{
+    font-size: 12px;
+}
